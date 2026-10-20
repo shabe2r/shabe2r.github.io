@@ -3,71 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shabe2r — Personal Page</title>
-<meta name="description" content="Shabe2r — Tech enthusiast and creator of @Shabe2rBot. All my projects and links in one place.">
+<title>Shabe2r</title>
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background:#0b0b0f; color:#f2f2f2; line-height:1.6; }
-  a { color:#4da3ff; text-decoration:none; }
-  .wrap { max-width:860px; margin:0 auto; padding:24px 18px 60px; }
-  header { text-align:center; padding:56px 10px 36px; }
-  .avatar { width:104px; height:104px; border-radius:50%; margin:0 auto 18px; display:flex; align-items:center; justify-content:center; font-size:44px; font-weight:700; color:#fff; background:linear-gradient(135deg,#1db954,#4da3ff); }
-  h1 { font-size:38px; letter-spacing:.5px; }
-  .tag { color:#a7a7b3; font-size:17px; margin-top:6px; }
-  .btn { display:inline-block; margin-top:22px; padding:12px 26px; border-radius:999px; background:#1db954; color:#fff; font-weight:600; }
-  .btn:hover { opacity:.9; }
-  section { margin-top:42px; }
-  h2 { font-size:23px; margin-bottom:14px; border-bottom:1px solid #23232c; padding-bottom:8px; }
-  p.about { color:#d7d7de; font-size:16.5px; }
-  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; }
-  .card { background:#15151c; border:1px solid #23232c; border-radius:14px; padding:18px; }
-  .card .icon { font-size:26px; }
-  .card h3 { font-size:17px; margin:8px 0 5px; }
-  .card p { color:#a7a7b3; font-size:14.5px; }
-  .links a { display:block; background:#15151c; border:1px solid #23232c; border-radius:12px; padding:15px 18px; margin-bottom:11px; color:#f2f2f2; font-weight:600; }
-  .links a span { color:#a7a7b3; font-weight:400; float:right; }
-  .links a:hover { border-color:#1db954; }
-  footer { text-align:center; color:#777784; font-size:14px; margin-top:54px; }
+  body {
+    background:#050507;
+    color:#ece7d9;
+    font-family:"Arial Black", "Helvetica Neue", Arial, sans-serif;
+    min-height:100vh;
+  }
+  .wrap { max-width:980px; margin:0 auto; padding:26px 26px 60px; }
+  header {
+    display:flex; justify-content:space-between; align-items:center;
+    padding:10px 0 30px;
+  }
+  .logo { font-size:26px; font-weight:900; letter-spacing:2px; color:#ece7d9; }
+  .logo .dot { color:#c6f24e; }
+  nav { display:flex; gap:26px; }
+  nav a {
+    color:#d8d8d8; text-decoration:none; font-family:Arial, sans-serif;
+    font-size:13px; letter-spacing:3px;
+  }
+  .hero { padding-top:11vh; }
+  .hello {
+    font-family:"Courier New", monospace;
+    color:#c6f24e; font-size:clamp(19px, 4vw, 26px);
+    letter-spacing:6px; margin-bottom:22px;
+  }
+  h1 {
+    font-size:clamp(54px, 14vw, 122px);
+    line-height:.98; font-weight:900; letter-spacing:1px;
+    text-transform:uppercase;
+  }
+  h1 .solid { color:#e6dfc8; display:block; }
+  h1 .outline {
+    display:block; color:transparent;
+    -webkit-text-stroke:2px #e6dfc8;
+  }
+  h1 .dot { color:#c6f24e; -webkit-text-stroke:0; }
+  .sub {
+    margin-top:34px;
+    font-family:Arial, sans-serif;
+    color:#9a9aa5; font-size:clamp(18px, 4vw, 26px);
+    line-height:1.5; font-weight:400; max-width:640px;
+  }
+  @media (max-width:560px) { nav { gap:15px; } nav a { font-size:11px; letter-spacing:2px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
-
   <header>
-    <div class="avatar">S</div>
-    <h1>Shabe2r</h1>
-    <div class="tag">Tech Enthusiast • Creator of @Shabe2rBot</div>
-    <a class="btn" href="https://t.me/Shabe2rBot" target="_blank" rel="noopener">🤖 Open My Telegram Bot</a>
+    <div class="logo">SHABE2R<span class="dot">.</span></div>
+    <nav><a href="#">HOME</a><a href="#">ABOUT</a><a href="#">CONTACT</a></nav>
   </header>
 
-  <section>
-    <h2>About</h2>
-    <p class="about">Hi, I'm Shabe2r. I build useful tools and keep all my projects and links in one place — starting with my Telegram bot, an advanced virtual assistant that converts videos, fetches Malayalam subtitles, downloads media and music, and more.</p>
-  </section>
-
-  <section>
-    <h2>My Bot — @Shabe2rBot</h2>
-    <div class="grid">
-      <div class="card"><div class="icon">🎬</div><h3>MKV to MP4 Converter</h3><p>Convert MKV files to MP4, with large files delivered via Google Drive.</p></div>
-      <div class="card"><div class="icon">📝</div><h3>Malayalam Subtitles</h3><p>Get Malayalam subtitles by release number or by movie name and year.</p></div>
-      <div class="card"><div class="icon">📸</div><h3>Instagram Downloader</h3><p>Download public posts, reels, carousels and stories.</p></div>
-      <div class="card"><div class="icon">▶️</div><h3>YouTube Downloader</h3><p>Download YouTube videos, shorts and live clips.</p></div>
-      <div class="card"><div class="icon">🎵</div><h3>Music Downloader</h3><p>Search and download songs with proper title, artist and album art.</p></div>
-      <div class="card"><div class="icon">🎞️</div><h3>IMDb Lookup</h3><p>Movie details with poster, rating, cast, story line and trailer.</p></div>
-      <div class="card"><div class="icon">🍿</div><h3>New Release Updates</h3><p>Instant updates for new Malayalam theatre and OTT releases.</p></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Links</h2>
-    <div class="links">
-      <a href="https://t.me/Shabe2rBot" target="_blank" rel="noopener">Telegram Bot <span>@Shabe2rBot →</span></a>
-      <a href="https://github.com/shabe2r" target="_blank" rel="noopener">GitHub <span>github.com/shabe2r →</span></a>
-    </div>
-  </section>
-
-  <footer>Made with ❤️ by Shabe2r</footer>
-
+  <div class="hero">
+    <div class="hello">Hi 👋</div>
+    <h1>
+      <span class="solid">Shabe2r</span>
+      <span class="outline">here<span class="dot">.</span></span>
+    </h1>
+    <p class="sub">Just for testing. Nothing here at the time</p>
+  </div>
 </div>
 </body>
 </html>
