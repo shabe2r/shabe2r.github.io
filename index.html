@@ -18,36 +18,40 @@ body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,s
 .grid{position:fixed;inset:0;z-index:-1;opacity:.12;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:65px 65px;mask-image:linear-gradient(to bottom,black,transparent 90%)}
 .loader{position:fixed;inset:0;background:#08090d;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;z-index:100;transition:opacity .8s ease,visibility .8s ease}
 .loader.hide{opacity:0;visibility:hidden}
-.loader-name{font-size:23px;font-weight:700;letter-spacing:4px;animation:pulse 1.4s ease-in-out infinite}
-.loader-track{width:120px;height:2px;background:#242530;overflow:hidden}
-.loader-bar{height:100%;background:var(--accent);animation:loading 1.5s ease-in-out forwards}
-@keyframes loading{from{width:0}to{width:100%}}
-@keyframes pulse{50%{opacity:.45}}
+.loader-name{font-size:21px;font-weight:600;letter-spacing:3.5px;background:linear-gradient(90deg,#7c7e88 0%,#f5f5f7 22%,#4796e3 40%,#9177c7 55%,#d96570 68%,#f5f5f7 82%,#7c7e88 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gemShimmer 2.4s linear infinite}
+@keyframes gemShimmer{from{background-position:120% 0}to{background-position:-120% 0}}
+.dot{display:inline-block;color:#f5f5f7;-webkit-text-fill-color:#f5f5f7;animation:dotPulse 1.2s ease-in-out infinite}
+.dot:nth-child(2){animation-delay:.18s}.dot:nth-child(3){animation-delay:.36s}
+@keyframes dotPulse{0%,100%{opacity:.15}50%{opacity:1}}
+.l-pct{font-size:58px;font-weight:800;letter-spacing:-1.5px;line-height:1;color:#f5f5f7;font-variant-numeric:tabular-nums}
+.l-pct em{font-style:normal;font-size:25px;margin-left:3px;background:linear-gradient(90deg,#4796e3,#9177c7,#d96570);-webkit-background-clip:text;background-clip:text;color:transparent}
+.l-track{width:min(250px,62vw);height:3px;background:#ffffff1c;border-radius:99px;overflow:hidden}
+.l-fill{height:100%;width:0%;border-radius:99px;background:linear-gradient(90deg,#4796e3,#9177c7,#d96570);box-shadow:0 0 12px rgba(145,119,199,.7);transition:width .15s ease}
 main{min-height:100vh;display:flex;flex-direction:column;padding:35px 7%}
-nav{display:flex;justify-content:space-between;align-items:center;opacity:0;transform:translateY(-12px);animation:reveal 1s ease 1.8s forwards}
+nav{display:flex;justify-content:space-between;align-items:center;opacity:0;transform:translateY(-12px);animation:reveal 1s ease 2.15s forwards}
 .logo{font-size:19px;font-weight:800;letter-spacing:-1px}
 .logo span{color:var(--accent)}
 .status{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:12px;letter-spacing:.5px}
 .status-dot{width:7px;height:7px;background:#75e6a3;border-radius:50%;box-shadow:0 0 12px #75e6a377}
 .hero{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;max-width:900px;margin:0 auto;width:100%}
-.eyebrow{color:var(--accent);font-size:12px;letter-spacing:4px;text-transform:uppercase;margin-bottom:30px;opacity:0;animation:reveal .8s ease 2s forwards}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:4px;text-transform:uppercase;margin-bottom:30px;opacity:0;animation:reveal .8s ease 2.35s forwards}
 h1{font-size:clamp(52px,9vw,108px);line-height:1.12;letter-spacing:-6px;font-weight:700}
 .line{display:block;overflow:hidden;padding-bottom:8px}
-.line span{display:block;transform:translateY(110%);animation:slideUp 1s cubic-bezier(.16,1,.3,1) forwards}
-.line:nth-child(2) span{animation-delay:.2s}
+.line span{display:block;transform:translateY(110%);animation:slideUp 1s cubic-bezier(.16,1,.3,1) 2s forwards}
+.line:nth-child(2) span{animation-delay:2.2s}
 .gradient{background:linear-gradient(100deg,#f5f5f7 10%,#a5b4fc 55%,#8584ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 #greeting{font-size:.72em;letter-spacing:-.045em}
 #greeting::after{content:"";display:inline-block;width:max(3px,.055em);height:.75em;margin-left:.12em;background:var(--accent);vertical-align:-4%;animation:blink 1.05s steps(1) infinite}
 @keyframes blink{0%,54%{opacity:1}55%,100%{opacity:0}}
 @media(prefers-reduced-motion:reduce){#greeting::after{display:none}}
-.subtitle{margin-top:25px;font-size:clamp(16px,2vw,20px);color:#9294a1;font-weight:400;opacity:0;animation:reveal 1s ease 2.8s forwards}
+.subtitle{margin-top:25px;font-size:clamp(16px,2vw,20px);color:#9294a1;font-weight:400;opacity:0;animation:reveal 1s ease 3.1s forwards}
 .subtitle strong{color:#e6e7ef;font-weight:500}
-.actions{margin-top:38px;opacity:0;animation:reveal 1s ease 3s forwards}
+.actions{margin-top:38px;opacity:0;animation:reveal 1s ease 3.3s forwards}
 .button{display:inline-flex;align-items:center;gap:12px;padding:15px 22px;border-radius:50px;background:#f5f5f7;color:#08090d;text-decoration:none;font-size:14px;font-weight:600;transition:transform .3s,background .3s}
 .button:hover{transform:translateY(-4px);background:#c9ccff}
 .arrow{transition:transform .3s}
 .button:hover .arrow{transform:translateX(5px)}
-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;color:#666875;font-size:11px;letter-spacing:1px;opacity:0;animation:reveal 1s ease 3.2s forwards}
+footer{display:flex;justify-content:space-between;align-items:center;gap:15px;color:#666875;font-size:11px;letter-spacing:1px;opacity:0;animation:reveal 1s ease 3.5s forwards}
 .footer-right{display:flex;align-items:center;gap:7px}
 @keyframes slideUp{to{transform:translateY(0)}}
 @keyframes reveal{to{opacity:1;transform:translateY(0)}}
@@ -57,8 +61,9 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:15px;co
 </head>
 <body>
 <div class="loader" id="loader">
-  <div class="loader-name">SHABE2R<span class="gradient">.</span></div>
-  <div class="loader-track"><div class="loader-bar"></div></div>
+  <div class="loader-name">Loading<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span></div>
+  <div class="l-pct"><span id="lPct">0</span><em>%</em></div>
+  <div class="l-track"><div class="l-fill" id="lFill"></div></div>
 </div>
 <div class="background"><div class="orb orb-one"></div><div class="orb orb-two"></div></div>
 <div class="grid"></div>
@@ -80,7 +85,17 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:15px;co
 </main>
 <script>
 const loader=document.getElementById('loader');
-window.addEventListener('load',()=>{setTimeout(()=>loader.classList.add('hide'),1600)});
+const lPct=document.getElementById('lPct');
+const lFill=document.getElementById('lFill');
+let lp=0;
+(function lTick(){
+  lp=Math.min(100,lp+(lp<60?3.5+Math.random()*7:2+Math.random()*4));
+  lPct.textContent=Math.floor(lp);
+  lFill.style.width=lp+'%';
+  if(lp<100) setTimeout(lTick,55+Math.random()*60);
+  else setTimeout(()=>loader.classList.add('hide'),280);
+})();
+setTimeout(()=>loader.classList.add('hide'),6000);
 const greetings=["Hi,","Hello,","Namaste,","Marhaba,","Hola,","Bonjour,","Konnichiwa,"];
 const gEl=document.getElementById('greeting');
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -99,7 +114,7 @@ if(reduceMotion){
     if(len>0){gEl.textContent=gEl.textContent.slice(0,len-1);setTimeout(eraseStep,ERASE);}
     else{gi=(gi+1)%greetings.length;setTimeout(typeStep,GAP);}
   }
-  setTimeout(typeStep,2400);
+  setTimeout(typeStep,3600);
 }
 </script>
 </body>
