@@ -36,6 +36,10 @@ h1{font-size:clamp(52px,9vw,108px);line-height:1.12;letter-spacing:-6px;font-wei
 .line span{display:block;transform:translateY(110%);animation:slideUp 1s cubic-bezier(.16,1,.3,1) forwards}
 .line:nth-child(2) span{animation-delay:.2s}
 .gradient{background:linear-gradient(100deg,#f5f5f7 10%,#a5b4fc 55%,#8584ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+#greeting{font-size:.72em;letter-spacing:-.045em}
+#greeting::after{content:"";display:inline-block;width:max(3px,.055em);height:.75em;margin-left:.12em;background:var(--accent);vertical-align:-4%;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{0%,54%{opacity:1}55%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){#greeting::after{display:none}}
 .subtitle{margin-top:25px;font-size:clamp(16px,2vw,20px);color:#9294a1;font-weight:400;opacity:0;animation:reveal 1s ease 2.8s forwards}
 .subtitle strong{color:#e6e7ef;font-weight:500}
 .actions{margin-top:38px;opacity:0;animation:reveal 1s ease 3s forwards}
@@ -66,10 +70,10 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:15px;co
   <section class="hero">
     <div class="eyebrow">A LITTLE SPACE ON THE INTERNET</div>
     <h1>
-      <span class="line"><span>Hi,</span></span>
+      <span class="line"><span id="greeting">Hi,</span></span>
       <span class="line"><span class="gradient">Shabe2r here.</span></span>
     </h1>
-    <p class="subtitle">Nothing here at the moment. Just testing. <strong>What's Up?.</strong></p>
+    <p class="subtitle">Nothing here at the moment. Just testing. <strong>What's Up?</strong></p>
     <div class="actions"><a href="https://t.me/shabe2r" target="_blank" rel="noopener" class="button">Say hello <span class="arrow">↗</span></a></div>
   </section>
   <footer><span>© 2026 SHABE2R</span><span class="footer-right">MADE WITH <span class="gradient">♥</span></span></footer>
@@ -77,6 +81,26 @@ footer{display:flex;justify-content:space-between;align-items:center;gap:15px;co
 <script>
 const loader=document.getElementById('loader');
 window.addEventListener('load',()=>{setTimeout(()=>loader.classList.add('hide'),1600)});
+const greetings=["Hi,","Hello,","Namaste,","Marhaba,","Hola,","Bonjour,","Konnichiwa,"];
+const gEl=document.getElementById('greeting');
+const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let gi=0;
+if(reduceMotion){
+  setInterval(()=>{gi=(gi+1)%greetings.length;gEl.textContent=greetings[gi];},2600);
+}else{
+  const TYPE=120,ERASE=55,HOLD=1800,GAP=400;
+  function typeStep(){
+    const word=greetings[gi],len=gEl.textContent.length;
+    if(len<word.length){gEl.textContent=word.slice(0,len+1);setTimeout(typeStep,TYPE);}
+    else setTimeout(eraseStep,HOLD);
+  }
+  function eraseStep(){
+    const len=gEl.textContent.length;
+    if(len>0){gEl.textContent=gEl.textContent.slice(0,len-1);setTimeout(eraseStep,ERASE);}
+    else{gi=(gi+1)%greetings.length;setTimeout(typeStep,GAP);}
+  }
+  setTimeout(typeStep,2400);
+}
 </script>
 </body>
 </html>
