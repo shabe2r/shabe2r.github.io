@@ -53,15 +53,16 @@
     .dot { width: 7px; height: 7px; background: #65e6a6; border-radius: 50%; box-shadow: 0 0 12px #65e6a6; }
     .exploring-pill .dot, .exploring-text { animation: exploringBlink 1.6s ease-in-out infinite; }
     @keyframes exploringBlink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
-    .hero { min-height: calc(100vh - 220px); min-height: calc(100svh - 220px); display: grid; grid-template-columns: 1fr; align-items: start; gap: 20px; padding: 55px 0 85px; position: relative; }
+    .hero { min-height: calc(100vh - 220px); min-height: calc(100svh - 220px); display: grid; grid-template-columns: 1fr; align-items: start; gap: 20px; padding: 28px 0 85px; position: relative; }
     .eyebrow { color: var(--accent2); font-size: 12px; text-transform: uppercase; letter-spacing: .19em; font-weight: 750; display: flex; align-items: center; gap: 10px; }
     .eyebrow::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+    .hero-copy .eyebrow::before { content: none; }
     h1 { font-size: clamp(3.5rem, 20vw, 10.5rem); line-height: .98; letter-spacing: -.075em; margin: 24px 0; }
-    .greet-word { display: inline-block; white-space: nowrap; position: relative; font-size: .48em; font-family: Georgia, 'Iowan Old Style', 'Times New Roman', serif; font-weight: 900; }
+    .greet-word { display: inline-block; white-space: nowrap; position: relative; font-size: .42em; font-family: Verdana, Geneva, sans-serif; font-weight: 700; letter-spacing: normal; }
     .greet-caret { display: inline-block; width: 3px; height: .85em; margin-left: 4px; background: var(--accent2); vertical-align: baseline; animation: caretBlink 1s step-end infinite; }
     @keyframes caretBlink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
     .gradient { background: linear-gradient(100deg, #fff 15%, #b9b0ff 55%, #75eadb); color: transparent; background-clip: text; -webkit-background-clip: text; }
-    .lead { color: var(--muted); font-size: clamp(1.125rem, 5vw, 1.5625rem); line-height: 1.4; max-width: 550px; min-height: 2.8em; }
+    .lead { color: var(--muted); font-size: clamp(1.125rem, 5vw, 1.5625rem); line-height: 1.4; max-width: 550px; min-height: 2.8em; margin-top: 50px; }
     .typewriter-shell { display: inline-block; color: var(--accent2); font-weight: 750; white-space: nowrap; }
     .typewriter-word { display: inline-block; white-space: nowrap; position: relative; }
     .typewriter-word.glitching::before,
@@ -133,10 +134,11 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .cursor-glow { position: fixed; width: 300px; height: 300px; border-radius: 50%; pointer-events: none; z-index: -1; background: radial-gradient(circle, rgba(155,140,255,.07), transparent 68%); transform: translate(-50%,-50%); }
     @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; gap: 5px; padding-top: 84px; }
+      .hero { grid-template-columns: 1fr; gap: 5px; padding-top: 48px; }
       .visual { min-height: 330px; margin-top: 0; }
       .about-panel { grid-template-columns: 1fr; }
       .status { display: none; }
+      .lead { margin-top: 48px; }
     }
     @media (max-width: 520px) {
       .wrap { width: min(100% - 28px, 1120px); }
@@ -194,18 +196,17 @@
   <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
   <div class="wrap">
     <nav>
-      <a class="brand" href="#home" aria-label="Home"><svg class="home-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5L22 11h-3v10h-4v-5h-6v5H5V11H2z" fill="currentColor"/></svg><span>Home</span></a>
+      <button class="theme-toggle" id="themeToggle" type="button">Change to warm 🌕</button>
       <div class="nav-links">
         <a href="#about">About</a><a href="#contact">Contact</a>
       </div>
       <div class="status"><span class="dot"></span> Always exploring</div>
     </nav>
-    <div class="theme-row"><button class="theme-toggle" id="themeToggle" type="button">Change to warm 🌕</button></div>
 
     <main>
       <section class="hero" id="home">
         <div class="hero-copy">
-          <h1><span class="greet-word"><span id="greetWord">Hello</span><span class="greet-caret"></span></span><br><span class="gradient">Shabe2r</span><br>here.</h1>
+          <h1><span class="greet-word"><span id="greetWord">Hello,</span><span class="greet-caret"></span></span><br><span class="gradient">Shabe2r</span><br>here.</h1>
           <p class="lead">An ordinary man who <span class="typewriter-shell"><span class="typewriter-word" id="typewriterWord" data-text="loves">loves</span></span> <span class="fixed-technology">technology.</span></p>
           <div class="actions">
             <a class="btn btn-primary" href="#about">About me <span aria-hidden="true">↘</span></a>
@@ -353,7 +354,7 @@
     (function startGreetTypewriter() {
       const target = document.getElementById('greetWord');
       if (!target) return;
-      const words = ['Hello', 'Hola', 'Bonjour', 'Namaste', 'Ni Hao', 'Marhaba'];
+      const words = ['Hello,', 'Hola,', 'Bonjour,', 'Namaste,', 'Ni Hao,', 'Marhaba,'];
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let wordIndex = 0;
 
